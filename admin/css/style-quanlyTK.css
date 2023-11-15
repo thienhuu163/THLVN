@@ -1,0 +1,72 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    background-color: rgba(51, 171, 145, 0.808);
+    padding-top: 20px;
+    
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 8px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(158, 32, 124, 0.808);
+
+}
+
+.content {
+    flex: 1;
+    padding: 16px;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.customer-table th, .customer-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.customer-table th {
+    background-color: #f2f2f2;
+}
+
+.customer-table a {
+    text-decoration: none;
+    color: blue;
+}
