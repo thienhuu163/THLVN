@@ -1,4 +1,19 @@
-<header>
+<?php session_start(); ?>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta ten="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/giaodien.css">
+    </head>
+    <body>
+	<?php
+        
+        include './connect_db.php';
+        include 'function.php';
+        if (!empty($_SESSION['username'])) {
+            ?>
+		<header>
 	         <nav class="container">
                 <div class="logo-main-menu">
                     <a href="" id="logo">
@@ -28,14 +43,14 @@
                     <ul id="main-menu-right2">
                         <li>
                             <div id="top-bot">
-                                <a><img src = "images/tk.jpg" width = "150" ></a>
+                                <a><img src = "images/tk.jpg" width = "50" ></a>
                                 <a href="http://localhost/Web_TLam/admin1/index.php">    Tài Khoản </a>
                             </div>
                         </li>
                         <li>
                             <div id="top-bot">
-                                <a><img src = "images/R.png" width = "100" ></a>
-                            <a href="http://localhost/Web_TLam/admin1/index.php">Giỏ Hàng </a>
+                                <a href="http://localhost/bansach/THLVN/giohang.php"><img src = "images/R.png" width = "50" ></a>
+                            <a>Giỏ Hàng </a>
                             </div>
                         </li>
                     </ul>
@@ -43,6 +58,7 @@
              </nav>
         </header>
         <div >
+		
             <ul id="main-menu">
                 <li ><a href="" class="active"> TRANG CHỦ</a></li>
                 <li><a href=""> GIỚI THIỆU</a></li>
@@ -51,4 +67,7 @@
                 <li><a href=""> TÌM KIẾM</a></li>
                 <li><a href=""><input  type="text" value="" id ="search"></a></li>
             </ul>
+		<?php } ?>
         </div>
+</body>
+</html>

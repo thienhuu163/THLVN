@@ -4,7 +4,14 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
+<?php 
+	session_start();
+	require_once "connect_db.php";
+	if(empty($_SESSION['username'])){
+		header("location: http://localhost/bansach/THLVN/dangnhap.php");
+		exit;
+	}
+?>
 <html>
     <head>
         <title>BOOKSTORE</title>
@@ -18,7 +25,7 @@ and open the template in the editor.
         $result = mysqli_query($kn, "SELECT * FROM `sanpham` WHERE `id_sp` =1 ");//.$_GET['id']
         $product = mysqli_fetch_assoc($result);
         $imgLibrary = mysqli_query($kn, "SELECT * FROM `khoanh` WHERE `id_sanpham` = 1 ");//.$_GET['id']
-        $product['image'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
+        $product['hinh_sp'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
 		if($product['soluong']>0){
         ?>
         <div class="container">
@@ -39,7 +46,7 @@ and open the template in the editor.
                     <?php if(!empty($product['hinh_sp'])){ ?>
                     <div id="gallery">
                         <ul>
-                            <?php foreach($product['image'] as $img) { ?>
+                            <?php foreach($product['hinh_sp'] as $img) { ?>
                                 <li><img src="admin1/<?=$img['path']?>" /></li>
                             <?php } ?>
                         </ul>
@@ -55,16 +62,16 @@ and open the template in the editor.
             <h2>Chi tiết sản phẩm</h2>
             <div id="product-detail">
                 <div id="product-img">
-                    <img src="admin1/<?=$product['images']?>" />
+                    <img src="admin1/<?=$product['hinh_sp']?>" />
                 </div>
                 <div id="product-info">
                     <h1><?=$product['ten']?></h1>
-                    <label>Giá: </label><span class="product-price"><?= number_format($product['price'], 0, ",", ".") ?> VND</span><br/>
+                    <label>Giá: </label><span class="product-price"><?= number_format($product['gia'], 0, ",", ".") ?> VND</span><br/>
                     <p><h2>Hết hàng</h2></p>
-                    <?php if(!empty($product['images'])){ ?>
+                    <?php if(!empty($product['hinh_sp'])){ ?>
                     <div id="gallery">
                         <ul>
-                            <?php foreach($product['image'] as $img) { ?>
+                            <?php foreach($product['hinh_sp'] as $img) { ?>
                                 <li><img src="admin1/<?=$img['path']?>" /></li>
                             <?php } ?>
                         </ul>
@@ -72,7 +79,7 @@ and open the template in the editor.
                     <?php } ?>
                 </div>
                 <div class="clear-both"></div>
-                <?=$product['content']?>
+                <?=$product['chitiet']?>
             </div>
         </div>
 		<?php } ?>
