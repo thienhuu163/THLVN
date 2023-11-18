@@ -57,3 +57,23 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
+    /* Định dạng khung */
+    .tab-container {
+      border: 1px solid #ccc;
+      width: 300px; /* Kích thước khung */
+      padding: 10px;
+      overflow: hidden; /* Tránh tràn bên ngoài khung */
+  }
+
+  /* Định dạng nút tab */
+  .tab button {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 5px;
+      width: 100%;
+      text-align: left;
+  }
