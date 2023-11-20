@@ -1,0 +1,79 @@
+/* nút quản lí sách*/
+.button-container {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e7e7e7a6;
+    color: #080808;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  /* Hiệu ứng khi di chuột qua nút */
+  .button-container:hover {
+    background-color: #9a2121;
+  }
+  
+  label{
+    margin-left: 20px;
+    }
+    #datepicker{
+    width:180px; 
+    margin: 0 20px 20px 20px;
+    }
+    #datepicker > span:hover{
+    cursor: pointer;
+    }
+    .date{
+      display: flex;
+      
+    }
+    /* nút seach mã sản phẩm) */
+    .search-container {
+      display: flex;
+      align-items: center;
+      width: 300px;
+      margin: 20px;
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .search-btn {
+      padding: 8px 12px;
+      margin-left: 8px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Định dạng khung */
+    .tab-container {
+      border: 1px solid #ccc;
+      width: 300px; /* Kích thước khung */
+      padding: 10px;
+      overflow: hidden; /* Tránh tràn bên ngoài khung */
+  }
+
+  /* Định dạng nút tab */
+  .tab button {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 5px;
+      width: 100%;
+      text-align: left;
+  }
