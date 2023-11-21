@@ -29,13 +29,13 @@
                         <li>
                             <div id="top-bot">
                                 <a><img src = "images/tk.jpg" width = "150" ></a>
-                                <a href="http://localhost/Web_TLam/admin1/index.php">    Tài Khoản </a>
+                                <a href="#">    Tài Khoản </a>
                             </div>
                         </li>
                         <li>
                             <div id="top-bot">
                                 <a><img src = "images/R.png" width = "100" ></a>
-                            <a href="http://localhost/Web_TLam/admin1/index.php">Giỏ Hàng </a>
+                            <a href="http://localhost/bansach/THLVN/giohang.php">Giỏ Hàng </a>
                             </div>
                         </li>
                     </ul>
