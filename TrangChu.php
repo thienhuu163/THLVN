@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/giaodien.css">
+    <link rel="stylesheet" href="css/theloai.css">
+    
+
+
 	<title>BOOKSTORE</title>
     
 </head>
@@ -43,7 +47,7 @@
                                     <p><?= $row['chitiet'] ?></p>
                                     <br>
                                         <div class="buy-button">
-                                            <form id="add-to-cart-form" action="giohang.php?action=add" method="POST" >
+                                            <form id="add-to-cart-form" action="cart.php?action=add" method="POST" >
                                                 <input type="text" value="1" name="quantity[<?= $row['id_sp']?>]">
                                                 <input type="submit" value="Mua sản phẩm" />
                                             </form>
@@ -72,6 +76,6 @@
                     ?>
         </div>
     </section>               
-          <?php include 'phantrang.php'?>          
+               
 </body>
 </html>
