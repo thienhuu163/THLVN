@@ -7,20 +7,9 @@
     <title>Quản Lý Thông Tin Tài Khoản</title>
 </head>
 <body>
-    <div class="container">
-            <div class="sidebar" style="    border-radius: 20px;">
-                <ul>
-                        <h2>Chào mừng </h2>
-                        <li><a href="http://">Quản lý sách</a></li>
-                        <li><a href="http://">Quản lý Thông Tin Tài Khoản</a></li>
-                        <li><a href="http://">Quản lý Đơn Hàng</a></li>
-                        <li><a href="http://">Quản lý Thống kê</a></li>
-                        <li><a href="http://localhost/bansach/THLVN/TrangChu.php">Đăng Xuất</a></li>    
-                </ul>
-            </div>
-        
+		<?php include "header.php" ; ?>
 
-        <div class="content">
+        <div class="content" >
             <div align="center"><h2>Quản lý thông tin tài khoản</h2></div>
             <table class="customer-table">
                 <thead>
