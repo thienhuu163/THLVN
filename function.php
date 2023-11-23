@@ -68,6 +68,7 @@ function uploadFiles($uploadedFiles) {
 function processUploadFile($file, $uploadPath) {
     $file = validateUploadFile($file, $uploadPath);
     if ($file != false) {
+    
         $file["name"] = str_replace(' ', '_', $file["name"]);
         if (move_uploaded_file($file["tmp_name"], $uploadPath . '/' . $file["name"])) {
             return array(
@@ -83,7 +84,25 @@ function processUploadFile($file, $uploadPath) {
     }
 }
 
-
+function upfile($filesimage){
+    $files=array();
+    foreach ($filesimage as $key => $values){
+            $files[$key] = $values;
+    }
+   
+    $uploadPath = "./images/";
+    //up 1 ảnh
+    $result = processUploadFile($files,$uploadPath);
+        if($result['error']){
+            return array(
+                'errors' => $result['message']
+            );
+        }else{
+            return array(
+                'path' => $result['path']
+            );
+        }
+}
 //Check file hợp lệ
 function validateUploadFile($file, $uploadPath) {
     //Kiểm tra xem có vượt quá dung lượng cho phép không?
