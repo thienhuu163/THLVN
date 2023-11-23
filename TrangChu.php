@@ -12,12 +12,37 @@
         <?php
                 
                 include './connect_db.php';
+				$param = "";
+				$sortParam = "";
+				$orderConditon = "";
+				//Tìm kiếm
+				$search = isset($_GET['name']) ? $_GET['name'] : "";
+				if ($search) {
+					$where = "WHERE `name` LIKE '%" . $search . "%'";
+					$param .= "name=".$search."&";
+				}
+
                 $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:10;
                 $current_page = !empty($_GET['page'])?$_GET['page']:1; //Trang hiện tại
                 $offset = ($current_page - 1) * $item_per_page;// sản phẩm bắt đầu từ offset trong database
+				if ($search) {
+					$products = mysqli_query($kn, "SELECT * FROM `sanpham` WHERE `ten_sp` LIKE '%" . $search . "%' ".$orderConditon."  LIMIT " . $item_per_page . " OFFSET " . $offset);
+					$totalRecords = mysqli_query($kn, "SELECT * FROM `sanpham` WHERE `ten_sp` LIKE '%" . $search . "%'");
+					$totalRecordsCount = $totalRecords->num_rows;
+					if($totalRecordsCount > 0){?>
+					<br>
+					<h1 class="underline">Kết quả tìm kiếm</h1>
+					<br>
+						<?php
+					}else{?>
+						<h1 class="underline">Không tìm thấy kết quả nào</h1>
+					<?php
+					}
+				}else{
                 $products = mysqli_query($kn, "SELECT * FROM `sanpham` ORDER BY `id_sp` ASC  LIMIT " . $item_per_page . " OFFSET " . $offset);
                 $totalRecords = mysqli_query($kn, "SELECT * FROM `sanpham`");//tổng số sản phẩm
-                $totalRecords = $totalRecords->num_rows;
+				}
+				$totalRecords = $totalRecords->num_rows;
                 //ceil làm tròn
                 $totalPages = ceil($totalRecords / $item_per_page);//tổng số trang
                 mysqli_close($kn);
@@ -25,7 +50,6 @@
 
         <section class="products">
             <div class="products-content">
-
                 <?php                                   
                     while($row = mysqli_fetch_array($products)) { 
                         if($row['soluong']>0){

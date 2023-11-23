@@ -254,6 +254,10 @@ footer ul img {
     border: 2px solid rgb(123, 63, 63);
     border-radius: 20px;
 }
+#product-search{
+            padding-bottom: 20px;
+            float: left;
+        }
 
 .product__avatar {
     cursor: pointer;
@@ -350,4 +354,9 @@ footer ul img {
 .current-page{
     background: #000;
     color: #FFF;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
 }

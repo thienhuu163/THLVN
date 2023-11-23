@@ -1,3 +1,34 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  padding-right: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.search-container button[type="submit"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 22px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button[type="submit"] i {
+  color: #555;
+}
+.underline {
+  text-decoration: underline;
+}
+</style>
 <header>
 	         <nav class="container">
                 <div class="logo-main-menu">
@@ -45,10 +76,10 @@
         <div>
         <div>
     <ul id="main-menu">
-        <li ><a href="" class="active"> TRANG CHỦ</a></li>
+        <li ><a href="TrangChu.php" class="active"> TRANG CHỦ</a></li>
         <li><a href=""> GIỚI THIỆU</a></li>
         <li><a href=""> THỂ LOẠI SÁCH</a>
-            <ul class="sub-menu" style="text-indent: 0; margin-left: 0;">
+            <!--<ul class="sub-menu" style="text-indent: 0; margin-left: 0;">
             <li><a href="Kinh Dị" class="tieude"><i class="fa fa-book"></i> Kinh Dị</a></li>
                    <ul class="sub-menu" style="text-indent: 0; margin-left: 0;">
                         <li><a href="Lãng Mạng" class="tieude"><i class="fa fa-heart"></i> Lãng Mạng</a></li>
@@ -60,11 +91,16 @@
                     </ul>
                     </ul>
                     <li><a href="Khoa Học" class="tieude"><i class="fa fa-flask"></i> Khoa Học</a></li>
-            </ul>
+            </ul>-->
         </li>
         <li><a href=""> HỖ TRỢ</a></li>
-        <li><a href=""> TÌM KIẾM</a></li>
-        <li><a href=""><input  type="text" value="" id ="search"></a></li>
+		<li><div class="search-container">
+			<form id="product-search" method="GET">
+		  <input type="text" value="<?=isset($_GET['name']) ? $_GET['name'] : ""?>" name="name" placeholder="Tìm kiếm...">
+		  <button type="submit"><i class="fa fa-search"></i></button>
+		  </form>
+		</div></li>
+       
     </ul>
 </div>
 </div>
