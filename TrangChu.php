@@ -5,7 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/giaodien.css">
 	<title>BOOKSTORE</title>
-    
+    <style>
+	
+.products {
+    padding: 0 80px;
+}
+
+.products-content {
+    margin-top: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 3rem 2rem;
+    padding: 1rem;
+    min-height: 400px;
+}
+
+.product {
+    text-align: center;
+    border: 2px solid rgb(123, 63, 63);
+    border-radius: 20px;
+}
+#product-search{
+            padding-bottom: 20px;
+            float: left;
+        }
+
+.product__avatar {
+    cursor: pointer;
+}
+
+.product>div+div {
+    margin-top: 2%;
+}
+
+.product__avatar>img {
+    width: 100%;
+    object-fit: cover;
+    border-radius:20px;
+    object-position: center;
+}
+.product:hover img{
+    transform: translate(0,-20px);
+}
+.product__name:hover{
+    color:#81d512;
+}
+.product__avatar--back {
+    display: none;
+}
+
+.product__avatar:hover .product__avatar--back {
+    display: inline-block;
+}
+
+.product__avatar:hover .product__avatar--front {
+    display: none;
+}
+.product__avatar--front, .product__avatar--back {
+    width: 240px;
+    height: 300px;
+	border-radius:15px;
+}
+
+.product__name {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding:10px 0;
+}
+
+.product__price {
+	font-weight:bold;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom:10px;
+}
+.price{
+	font-weight:bold;
+}
+.product__price>span+span {
+    margin-left: 2%;
+	font-weight:bold;
+}
+.buy-button{
+    text-align: right;
+    margin-top: 10px;
+}
+.buy-button a{
+    background: #444;
+    padding: 5px;
+    color: #fff;
+}
+	</style>
 </head>
 <body>
         <?php include 'header.php';?>
@@ -57,14 +149,14 @@
                         <ul>
                             <div class="product">
                                 <div class="product__avatar">
-                                    <a href="" ><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--front"/></a>
-                                    <a href="" ><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--back"/></a>
+                                    <a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--front"/></a>
+                                    <a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--back"/></a>
                                 </div>
-                                <div class="product__name"><a href=""><?= $row['ten_sp']?></div>    
+                                <div class="product__name"><a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><?= $row['ten_sp']?></div>    
                                 <div class="product__price">
-                                    <span><a href="">Giá: <?= number_format($row['gia'], 0, ",", ".") ?></a><span>đ</span></span>
+                                    <span><a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>">Giá: <?= number_format($row['gia'], 0, ",", ".") ?></a><span>đ</span></span>
                                 </div>
-                                    <p><?= $row['chitiet'] ?></p>
+                                    <p><a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><?= $row['chitiet'] ?></p>
                                     <br>
                                         <div class="buy-button">
                                             <form id="add-to-cart-form" action="giohang.php?action=add" method="POST" >
@@ -79,12 +171,12 @@
                         <ul>
                             <div class="product">
                                 <div class="product__avatar">
-                                    <a href="" ><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--front"/></a>
-                                    <a href="" ><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--back"/></a>
+                                    <a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--front"/></a>
+                                    <a href="chitietsanpham.php?id=<?=$row['id_sp'] ?>"><img src="<?=$row['hinh_sp'] ?>" title="<?= $row['ten_sp']?>" class="product__avatar--back"/></a>
                                 </div>
-                                <div class="product__name"><a href=""><?= $row['ten_sp']?></div>    
+                                <div class="product__name"><a href="http://localhost/bansach/THLVN/chitietsanpham.php?id=<?=$row['id_sp'] ?>"><?= $row['ten_sp']?></div>    
                                 <div class="product__price">
-                                    <span><a href="">Giá: <?= number_format($row['gia'], 0, ",", ".") ?></a><span>đ</span></span>
+                                    <span><a href="http://localhost/bansach/THLVN/chitietsanpham.php?id=<?=$row['id_sp'] ?>">Giá: <?= number_format($row['gia'], 0, ",", ".") ?></a><span>đ</span></span>
                                 </div>
                                     <p><?= $row['chitiet'] ?></p>
                                     <br>
