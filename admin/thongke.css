@@ -2,16 +2,22 @@
   
     /* nút seach mã sản phẩm) */
     .search-container {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: 2px solid #333;
-      background-color: #fff;
-      cursor: pointer;
-      /* Căn giữa nút */
-      display: block;
-      margin: 0 auto;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Chiều cao của toàn bộ trang */
+  margin: 0;
+}
+
+.search-container {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #333;
+  background-color: #fff;
+  cursor: pointer;
+}
       
-    }
+    
     
     .search-box {
       width: 100%;
