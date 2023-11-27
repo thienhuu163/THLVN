@@ -91,7 +91,7 @@
                                 ?>
                             </ul>
         </li>
-        <li><a href=""> HỖ TRỢ</a></li>
+        <li><a href="giaodienmenu.php"> LIÊN HỆ</a></li>
 		<li><div class="search-container">
 			<form id="product-search" method="GET">
 		  <input type="text" value="<?=isset($_GET['name']) ? $_GET['name'] : ""?>" name="name" placeholder="Tìm kiếm...">

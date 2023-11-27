@@ -23,11 +23,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+		
         $result = mysqli_query($kn, "SELECT * FROM `sanpham` WHERE `id_sp` = ".$_GET['id']);//.$_GET['id']
         $product = mysqli_fetch_assoc($result);
-        //$imgLibrary = mysqli_query($kn, "SELECT * FROM `khoanh` WHERE `id_sanpham` = ".$_GET['id']);//.$_GET['id']
-        //$product['hinh_sp'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
-		if($product['soluong']>0){
+        if($product['soluong']>0){
         ?>
         <div class="container">
             <h2>Chi tiết sản phẩm</h2>
