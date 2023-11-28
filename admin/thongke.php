@@ -41,31 +41,44 @@
                         <th>Tên sách</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
-                        <th>Thành tiền</th>
-                        </tr>
-                        <tr>
-                        <td style=" text-align:left;" colspan="4">Tổng</td>   
-                        <th colspan="2"></th>
-                    </tr>
+                        <th>Thành tiền</th>  
+                    </tr>	
                 </thead>
                 <tbody>
                     <?php
                     
                         // Keết nối đến cơ sở dữ liệu và truy vấn dữ liệu ở đây
                         include '../connect_db.php';
-                        $result = mysqli_query($kn, "SELECT * FROM `chitiet_giohang` WHERE 1");
+						$sql = "SELECT id_sanpham,sanpham.ten_sp,chitiet_giohang.gia, SUM(chitiet_giohang.soluong) AS tong_soluong, SUM(chitiet_giohang.gia * chitiet_giohang.soluong) AS tong_giatien 
+								FROM chitiet_giohang inner join giohang on chitiet_giohang.id_giohang = giohang.id_gh 
+                                					INNER JOIN sanpham on chitiet_giohang.id_sanpham = sanpham.id_sp								
+								WHERE 1 
+								GROUP BY id_sanpham,sanpham.ten_sp";
+						$result = mysqli_query($kn, $sql);
+						//var_dump($row = $result->fetch_assoc());exit;
+						$tong =0;
                         while ($row = $result->fetch_assoc()) { ?>
                             <tr>
-                            <td> <?= $row['masach']?> </td>
-                            <td> <?= $row['tensach'] ?></td>
-                            <td> <?= $row['soluong']?> </td>
+                            <td> <?= $row['id_sanpham']?> </td>
+                            <td> <?= $row['ten_sp'] ?></td>
+                            <td> <?= $row['tong_soluong']?> </td>
                             <td><?= $row['gia'] ?></td>
-                            <td> <?= $row['thanhtien']?>    
-                            <td> <?= $row['tong']?> <
-                            <td><a href="http://localhost/bansach/THLVN/admin/thongke.php?id=<?$row['id']?>" >Sửa</a></td>
+                            <td> <?= $row['tong_giatien']?>
+							<?php $tong=$tong +$row['tong_giatien']; ?>
                             </tr>
                     <?php }?>
+					
+				<thead>
+					<th>Tổng tiền</th>
+					<th></th> 		  
+                    <th></th>
+                    <th></th>
+                    <th><?= $tong; ?></th>
+				</thead>
                 </tbody>
+				<tbody>
+					
+				</tbody>
             </table>
         </div>
         
