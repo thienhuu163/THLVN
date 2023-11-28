@@ -41,9 +41,8 @@
                         <th>Tên sách</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
-                        <th>Tổng tiền</th>
-                        <th>Hành động</th>   
-                    </tr>
+                        <th>Thành tiền</th>  
+                    </tr>	
                 </thead>
                 <tbody>
                     <?php
@@ -57,17 +56,29 @@
 								GROUP BY id_sanpham,sanpham.ten_sp";
 						$result = mysqli_query($kn, $sql);
 						//var_dump($row = $result->fetch_assoc());exit;
+						$tong =0;
                         while ($row = $result->fetch_assoc()) { ?>
                             <tr>
                             <td> <?= $row['id_sanpham']?> </td>
                             <td> <?= $row['ten_sp'] ?></td>
                             <td> <?= $row['tong_soluong']?> </td>
                             <td><?= $row['gia'] ?></td>
-                            <td> <?= $row['tong_giatien']?>    
-                            <td><a href="http://localhost/bansach/THLVN/admin/thongke.php?id=<?$row['id']?>" >Sửa</a></td>
+                            <td> <?= $row['tong_giatien']?>
+							<?php $tong=$tong +$row['tong_giatien']; ?>
                             </tr>
                     <?php }?>
+					
+				<thead>
+					<th>Tổng tiền</th>
+					<th></th> 		  
+                    <th></th>
+                    <th></th>
+                    <th><?= $tong; ?></th>
+				</thead>
                 </tbody>
+				<tbody>
+					
+				</tbody>
             </table>
         </div>
         
